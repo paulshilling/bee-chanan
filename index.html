@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee Chanan - Local Beekeeping Honey</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #FEFAF0;
+            --surface: #ffffff;
+            --surface-soft: #F3F1C4;
+            --text: #403F2B;
+            --text-muted: #5A553D;
+            --accent: #A18A5F;
+            --border: rgba(64, 63, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(243, 241, 196, 0.3), transparent 28%), radial-gradient(circle at bottom right, rgba(217, 217, 204, 0.2), transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0 24px;
+            border-bottom: 1px solid rgba(64, 63, 43, 0.12);
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 5;
+        }
+
+        .logo {
+            height: 56px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 42px;
+            align-items: center;
+            padding: 80px 0 56px;
+            min-height: 520px;
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 6vw, 4.8rem);
+            font-weight: 400;
+            margin-bottom: 22px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 620px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            border-radius: 28px;
+            box-shadow: 0 24px 70px rgba(64, 63, 43, 0.12);
+            display: block;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            padding: 42px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .story {
+            padding: 60px 0 0;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 54px;
+            align-items: start;
+        }
+
+        .story-content {
+            max-width: 620px;
+            padding: 32px 32px 32px 24px;
+            background: var(--surface);
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(64, 63, 43, 0.06);
+        }
+
+        .story-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 28px;
+            object-fit: cover;
+            min-height: 520px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .story h2 {
+            font-size: clamp(2.8rem, 5vw, 3.6rem);
+            font-weight: 500;
+            margin-bottom: 36px;
+            text-align: center;
+            letter-spacing: -0.03em;
+        }
+
+        .story h3 {
+            font-size: 1.95rem;
+            font-weight: 500;
+            margin: 30px 0 18px;
+            color: var(--text);
+        }
+
+        .story p {
+            margin-bottom: 22px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .story ul {
+            margin: 22px 0;
+            padding-left: 30px;
+        }
+
+        .story li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background: var(--bg);
+            padding: 40px 0 32px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(64, 63, 43, 0.12);
+        }
+
+        .footer-content {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .footer-row a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-row a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-row img {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: saturate(0.7);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content,
+            .story-image {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
+            .footer-row {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-row span {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo-transparent.png" alt="Bee Chanan Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <h1>Embrace the Buzz of Local Beekeeping</h1>
+                <p>Explore the delightful world of Bee-chanan honey crafted with passion in Fetcham.</p>
+            </div>
+            <img src="images/hero.jpg" alt="Beekeeping scene">
+        </section>
+
+        <section class="image-grid">
+            <img src="images/bees1.jpg" alt="Honey bees on honeycomb">
+            <img src="images/bees2.jpg" alt="Beekeeping equipment">
+        </section>
+
+        <section class="story" id="about">
+            <h2>Our Story</h2>
+            <div class="story-grid">
+                <div class="story-content">
+                    <h3>Who We Are</h3>
+                    <p>For Ian, it started with a simple fascination. Ian is someone who spends his professional life focused on environmental sustainability, he has always understood the delicate balance of our ecosystem. But it wasn't until he looked closer at the world of the honeybee that he realised just how vital—and captivating—these tiny creatures truly are.</p>
+
+                    <p>What began as a personal interest quickly blossomed into a dedicated mission. Ian started with just two hives in his back garden, learning the intricate "language" of the colony and the seasonal rhythms of the bees.</p>
+
+                    <h3>Growing with the Bees</h3>
+                    <p>Today, that small garden project has grown into a serious passion for local biodiversity. Ian now manages nine thriving hives across three unique locations. That is a lot of bees—and a lot of hard work—but for Ian, it's a labor of love that perfectly aligns his career values with his hobby.</p>
+
+                    <h3>Why Our Honey?</h3>
+                    <p>By keeping hives in multiple locations, Ian ensures his bees have access to a diverse range of local flora. This results in honey that isn't just sweet, but a true reflection of the local landscape. When you buy a jar of Ian's honey, you're getting:</p>
+
+                    <ul>
+                        <li>Pure, Raw Quality: Hand-harvested and handled with care.</li>
+                        <li>Sustainability at Heart: Managed by someone who puts the environment first.</li>
+                        <li>Local Flavor: Unique profiles dictated by the flowers in our own neighborhoods.</li>
+                    </ul>
+
+                    <p>From the first two hives to the thousands of bees he cares for today, Ian's journey has always been about one thing: respecting the craft and protecting the pollinator.</p>
+                </div>
+                <img src="images/beekeeping.jpg" alt="Beekeeping landscape" class="story-image">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-row">
+                <a href="mailto:info@bee-chanan.com">info@bee-chanan.com</a>
+                <a href="https://www.instagram.com/beechanan_honey?igsh=aGlpZTU0M2NmOWxv&utm_source=qr" target="_blank" aria-label="Instagram">
+                    <img src="images/instagram.svg" alt="Instagram logo">
+                </a>
+                <span>School Lane, Fetcham, Leatherhead, Surrey, UK</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
