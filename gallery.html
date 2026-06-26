@@ -78,12 +78,22 @@
             padding: 60px 0;
         }
 
+        .gallery-header {
+            max-width: 720px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
         .gallery h1 {
             font-size: clamp(2.8rem, 5vw, 3.6rem);
             font-weight: 500;
-            margin-bottom: 36px;
-            text-align: center;
+            margin-bottom: 12px;
             letter-spacing: -0.03em;
+        }
+
+        .gallery-intro {
+            font-size: 1.05rem;
+            color: var(--text-muted);
         }
 
         .gallery-grid {
@@ -186,7 +196,10 @@
 
     <main>
         <section class="gallery">
-            <h1>Gallery</h1>
+            <div class="gallery-header">
+                <h1>Gallery</h1>
+                <p class="gallery-intro">A glimpse into the hives, landscapes, and care behind every jar of Bee Chanan honey.</p>
+            </div>
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Images will be loaded here by JavaScript -->
             </div>

@@ -22,6 +22,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Avenir', 'Segoe UI', sans-serif;
             line-height: 1.6;
@@ -108,6 +112,79 @@
             border-radius: 28px;
             box-shadow: 0 24px 70px rgba(64, 63, 43, 0.12);
             display: block;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(161, 138, 95, 0.16);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-primary {
+            background: var(--text);
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(64, 63, 43, 0.16);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(64, 63, 43, 0.16);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin: 8px 0 36px;
+        }
+
+        .highlight-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 12px 34px rgba(64, 63, 43, 0.06);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
         .image-grid {
@@ -294,10 +371,30 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-text">
-                <h1>Embrace the Buzz of Local Beekeeping</h1>
-                <p>Explore the delightful world of Bee-chanan honey crafted with passion in Fetcham.</p>
+                <span class="eyebrow">Local, ethical honey</span>
+                <h1>Crafted with care, rooted in the landscape.</h1>
+                <p>Bee Chanan brings together thoughtful beekeeping, local flora, and a deep respect for pollinators to create honey with character and purpose.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="gallery.html">View the Gallery</a>
+                    <a class="button button-secondary" href="#about">Learn More</a>
+                </div>
             </div>
             <img src="images/hero.jpg" alt="Beekeeping scene">
+        </section>
+
+        <section class="highlights" aria-label="Highlights">
+            <div class="highlight-card">
+                <h3>Small-batch care</h3>
+                <p>Every jar reflects careful handling, seasonal timing, and a commitment to quality.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Local biodiversity</h3>
+                <p>Bee-friendly hives are placed across varied landscapes to support healthy, distinctive honey.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Ethical practice</h3>
+                <p>The work is guided by environmental awareness and a genuine love for the craft.</p>
+            </div>
         </section>
 
         <section class="image-grid">
@@ -336,11 +433,14 @@
     <footer>
         <div class="footer-content">
             <div class="footer-row">
-                <a href="mailto:info@bee-chanan.com">info@bee-chanan.com</a>
+                <div>
+                    <a href="mailto:info@bee-chanan.com">info@bee-chanan.com</a>
+                    <br>
+                    <span>School Lane, Fetcham, Leatherhead, Surrey, UK</span>
+                </div>
                 <a href="https://www.instagram.com/beechanan_honey?igsh=aGlpZTU0M2NmOWxv&utm_source=qr" target="_blank" aria-label="Instagram">
                     <img src="images/instagram.svg" alt="Instagram logo">
                 </a>
-                <span>School Lane, Fetcham, Leatherhead, Surrey, UK</span>
             </div>
         </div>
     </footer>
